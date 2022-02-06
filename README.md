@@ -1,2 +1,3 @@
 # disbird
-Discord bot for Science Olympiad ornithology
+
+> Discord bot for Science Olympiad ornithology
