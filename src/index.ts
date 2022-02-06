@@ -24,6 +24,7 @@ bot.on("messageCreate", async (message) => {
 		const res = await axios(
 			"https://www.bestrandoms.com/random-bird-generator"
 		);
+		console.log(res.data);
 		const document = new JSDOM(res.data).window.document;
 
 		const bird = "#main .container div:nth-child(2) .content ul li";
