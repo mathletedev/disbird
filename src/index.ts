@@ -13,7 +13,11 @@ bot.editStatus("idle", {
 bot.on("ready", () => console.log("Bot is online!"));
 
 bot.on("messageCreate", async (message) => {
-	if (message.content !== "disbird" || !message.guildID || message.author.bot)
+	if (
+		message.content.toLowerCase() !== "disbird" ||
+		!message.guildID ||
+		message.author.bot
+	)
 		return;
 
 	try {
@@ -42,9 +46,9 @@ bot.on("messageCreate", async (message) => {
 			},
 			messageReference: { messageID: message.id }
 		});
-	} catch (_) {
+	} catch (e) {
 		(message.channel as TextChannel).createMessage({
-			content: "❌ Unable to fetch a bird...",
+			content: `❌ Unable to fetch a bird...\`\`\`${e}\`\`\``,
 			messageReference: { messageID: message.id }
 		});
 	}
